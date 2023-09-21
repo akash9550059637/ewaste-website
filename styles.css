@@ -1,0 +1,66 @@
+/* Add custom styles for your website */
+
+/* Header styles */
+header {
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #f8f9fa; /* Light background color */
+    border-bottom: 1px solid #ccc; /* Light gray border */
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 40px;
+}
+
+/* Button styles */
+.btn {
+    font-weight: bold;
+}
+
+/* Customize button colors */
+.btn-primary {
+    background-color: #007bff; /* Blue */
+    border-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745; /* Green */
+    border-color: #28a745;
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Yellow */
+    border-color: #ffc107;
+}
+
+/* Footer styles */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    header {
+        font-size: 24px; /* Adjust header font size for smaller screens */
+    }
+
+    /* Adjust margins for sections on smaller screens */
+    section {
+        margin-bottom: 20px;
+    }
+}

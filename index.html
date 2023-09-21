@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Collection and Recycling</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"> <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
+
+    <!-- Add your JavaScript files here if needed -->
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-2">
+        <h1>E-Waste Collection and Recycling <p align="right"><img src="ewaste-website/src/icons/recycle.jpg" alt="Recycle" style="width: 60px;height:60px;"></p></h1>
+        <br></br>
+        <!-- Buttons for Register and Login -->
+        <div class="button-container">
+            <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
+        </div>
+        <script>
+        // Function to handle "Login" button click
+        function handleLoginButtonClick() {
+            // Open a new tab for user login
+            const loginWindow = window.open('', '_blank');
+            
+            // Create a form for user input
+            const loginForm = document.createElement('form');
+            
+            // Create input fields for email/contact and password
+            const emailContactLabel = document.createElement('label');
+            emailContactLabel.textContent = 'Email/Contact:';
+            const emailContactInput = document.createElement('input');
+            emailContactInput.type = 'text';
+            
+            const passwordLabel = document.createElement('label');
+            passwordLabel.textContent = 'Password:';
+            const passwordInput = document.createElement('input');
+            passwordInput.type = 'password';
+            
+            // Create a submit button
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.textContent = 'Login';
+            
+            // Add input elements to the form
+            loginForm.appendChild(emailContactLabel);
+            loginForm.appendChild(emailContactInput);
+            loginForm.appendChild(document.createElement('br'));
+            
+            loginForm.appendChild(passwordLabel);
+            loginForm.appendChild(passwordInput);
+            loginForm.appendChild(document.createElement('br'));
+            
+            loginForm.appendChild(submitButton);
+            
+            // Append the form to the new tab
+            loginWindow.document.body.appendChild(loginForm);
+        }
+
+        // Function to handle "Register" button click
+        function handleRegisterButtonClick() {
+            // Open a new window or modal for user registration
+            const registrationWindow = window.open('', 'User Registration', 'width=400,height=400');
+            
+            // Create a form for user input
+            const registrationForm = document.createElement('form');
+            
+            // Create input fields for name, contact, email, and password
+            const nameLabel = document.createElement('label');
+            nameLabel.textContent = 'Name:';
+			
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+			
+            const contactLabel = document.createElement('label');
+            contactLabel.textContent = 'Contact:';
+			
+            const contactInput = document.createElement('input');
+            contactInput.type = 'text';
+            
+            const emailLabel = document.createElement('label');
+            emailLabel.textContent = 'Email:';
+			
+            const emailInput = document.createElement('input');
+            emailInput.type = 'email';
+            
+            const passwordLabel = document.createElement('label');
+            passwordLabel.textContent = 'Password:';
+            const passwordInput = document.createElement('input');
+            passwordInput.type = 'password';
+            
+            // Create a submit button
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.textContent = 'Submit';
+            
+            // Add input elements to the form
+            registrationForm.appendChild(nameLabel);
+            registrationForm.appendChild(nameInput);
+            registrationForm.appendChild(document.createElement('br'));
+            
+            registrationForm.appendChild(contactLabel);
+            registrationForm.appendChild(contactInput);
+            registrationForm.appendChild(document.createElement('br'));
+            
+            registrationForm.appendChild(emailLabel);
+            registrationForm.appendChild(emailInput);
+            registrationForm.appendChild(document.createElement('br'));
+            
+            registrationForm.appendChild(passwordLabel);
+            registrationForm.appendChild(passwordInput);
+            registrationForm.appendChild(document.createElement('br'));
+            
+            registrationForm.appendChild(submitButton);
+            
+            // Append the form to the new window or modal
+            registrationWindow.document.body.appendChild(registrationForm);
+        }
+
+        // JavaScript code for handling button clicks
+        document.getElementById('register-button').addEventListener('click', handleRegisterButtonClick);
+
+        document.getElementById('login-button').addEventListener('click', handleLoginButtonClick);
+    </script>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Navigation links can go here -->
+    </nav>
+    
+    <main class="container my-4">
+        <section id="ewaste-locator" class="mb-4">
+            <h2 class="display-4">Find the Nearest E-Waste Collection Center</h2>
+            <p class="lead">Use our locator to find the closest e-waste collection and recycling facility near you.</p>
+            <button id="locate-button" class="btn btn-primary">Locate</button>
+            <div id="map" class="mt-4" style="height: 400px;width: 600px;"></div> <!-- A map or location display can go here -->
+        </section>
+        
+        <section id="educational-content" class="mb-4">
+            <h2 class="display-4">Educational Information</h2>
+            <p class="lead">Learn about the harmful components of e-waste and their effects on the environment and human health if not disposed of correctly.</p>
+            <button id="learn-button" class="btn btn-success">Learn More</button>
+        </section>
+        
+        <section id="device-recycling" class="mb-4">
+            <h2 class="display-4">Device Recycling</h2>
+            <p class="lead">Recycle your old devices and earn credit points based on the amount of precious metals recovered from the device when disposed of correctly.</p>
+            <button id="recycle-button" class="btn btn-warning">Recycle</button>
+        </section>
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 E-Waste Collection and Recycling</p>
+    </footer>
+
+    <!-- Include JavaScript files here -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Leaflet JavaScript -->
+    <script>
+        // JavaScript code for handling the "Locate" button
+        // JavaScript code for handling the "Locate" button
+document.getElementById('locate-button').addEventListener('click', function () {
+    // Check if geolocation is available in the browser
+    if ("geolocation" in navigator) {
+        // Use Google Maps Geolocation API
+        const geocoder = new google.maps.Geocoder();
+        const geolocationOptions = {
+            enableHighAccuracy: true,
+            timeout: 5010,
+            maximumAge: 0
+        };
+
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // Create a map and set the view to the user's location
+                const map = L.map('map').setView([latitude, longitude], 13);
+
+                // Add a Google Maps tile layer to the map
+                L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                    maxZoom: 23,
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                }).addTo(map);
+
+                // Add a marker for the user's location
+                L.marker([latitude, longitude]).addTo(map)
+                    .bindPopup('Your Location')
+                    .openPopup();
+
+                // Reverse geocode to get the user's address (optional)
+                const latlng = { lat: latitude, lng: longitude };
+                geocoder.geocode({ location: latlng }, function (results, status) {
+                    if (status === "OK" && results[0]) {
+                        const userAddress = results[0].formatted_address;
+                        console.log("User's Address: " + userAddress);
+                    }
+                });
+            },
+            function (error) {
+                // Handle geolocation error here
+                console.error('Geolocation error:', error);
+                alert('Geolocation error: ' + error.message);
+            },
+            geolocationOptions
+        );
+    } else {
+        alert("Geolocation is not available in this browser.");
+    }
+});
+
+    </script>
+    <script src="UserRegistration.js"></script> <!-- Include UserRegistration.js -->
+</body>
+</html>
