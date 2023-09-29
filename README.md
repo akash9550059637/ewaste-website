@@ -1,6 +1,6 @@
 # ewaste-website
 Ewaste-website
-file should be arranged in a directory as follows:
+files should be arranged in a directory as follows:
 ewaste-website/
 -->Public/
      -->index.html
